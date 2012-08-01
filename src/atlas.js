@@ -1,6 +1,6 @@
 (function(root, factory) {
 	if(typeof define === 'function' && define.amd) //AMD bootstrap
-		define([], function() {
+		define('atlas', function() {
 			var atlas = factory();
 			root.atlas = atlas; 
 			return atlas; 
@@ -78,7 +78,7 @@
 			
 			if(isMethod(value)) {
 				ovalue = base[key];
-				if(!_.isFunction(ovalue)) { ovalue = null; }
+				if(typeof ovalue !== 'function') { ovalue = null; }
 				if(ovalue) 
 					value = overrideFunction(value, ovalue);
 			}
