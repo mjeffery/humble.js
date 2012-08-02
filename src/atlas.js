@@ -1,27 +1,29 @@
 (function(root, factory) {
 	if(typeof define === 'function' && define.amd) //AMD bootstrap
-		define('atlas', function() {
+		define('atlas', [], function() {
 			var atlas = factory();
 			root.atlas = atlas; 
 			return atlas; 
 		});
 	else {
 		var atlas = factory();
-		if(typeof module !== 'undefined' && module.exports) //common.js bootstrap
+		if(typeof module !== 'undefined' && module.exports) {//common.js bootstrap
 			module.exports = atlas;
+			module.id = 'atlas';
+		}
 		root.atlas = factory();
 	}
 })
 (this, function() {
 	var extend = function(obj) {		//from underscore.js (sans Array.forEach polyfill)
-	  	arguments.slice(1).forEach(function(source) {
-	      	for (var prop in source) {
-	        	obj[prop] = source[prop];
-	      	}
-    	});
-    	return obj;
-  	},
-  	Class_ctor = function() {};
+		  	Array.prototype.slice.call(arguments, 1).forEach(function(source) {
+		      	for (var prop in source) {
+		        	obj[prop] = source[prop];
+		      	}
+	    	});
+	    	return obj;
+	  	},
+  		Class_ctor = function() {};
 	
 	function makeCtor() {
 		var Class = function() {
@@ -44,6 +46,7 @@
 		});
 		
 		Class.prototype.init = function() {};
+		Class.prototype.equals = function(value) { return this === value };
 		
 		return Class;
 	}
