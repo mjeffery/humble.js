@@ -1,17 +1,17 @@
 (function(root, factory) {
 	if(typeof define === 'function' && define.amd) //AMD bootstrap
-		define('atlas', [], function() {
-			var atlas = factory();
-			root.atlas = atlas; 
-			return atlas; 
+		define('humble', [], function() {
+			var humble = factory();
+			root.humble = humble; 
+			return humble; 
 		});
 	else {
-		var atlas = factory();
+		var humble = factory();
 		if(typeof module !== 'undefined' && module.exports) {//common.js bootstrap
-			module.exports = atlas;
-			module.id = 'atlas';
+			module.humble = humble;
+			module.id = 'humble';
 		}
-		root.atlas = factory();
+		root.humble = factory();
 	}
 })
 (this, function() {

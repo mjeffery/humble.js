@@ -5,10 +5,10 @@ describe("A base object that", function() {
 		it("can be extended", function() {
 			var base, subclass, a, b, c;
 			
-			base = atlas.Object.extend({ foo: true });
+			base = humble.Object.extend({ foo: true });
 			subclass = base.extend({ bar: true });
 			
-			a = new atlas.Object();
+			a = new humble.Object();
 			b = new base();
 			c = new subclass();
 			
@@ -23,7 +23,7 @@ describe("A base object that", function() {
 		it("allows methods and properties to be overridden", function() {
 			var base, subclass, a, b;
 			
-			base = atlas.Object.extend({
+			base = humble.Object.extend({
 				prop: 'base',
 				method: function() { return 'base' }
 			});
@@ -45,7 +45,7 @@ describe("A base object that", function() {
 		it('provides the "_super" property to access an overridden method', function() {
 			var base, subclass, a, b;
 			
-			base = atlas.Object.extend({ value: function() { return 5 } });
+			base = humble.Object.extend({ value: function() { return 5 } });
 			subclass = base.extend( { value: function() { return this._super() + 10 } });
 			
 			a = new base();
@@ -62,7 +62,7 @@ describe("A base object that", function() {
 		var base, subclass, a, b;
 		
 		beforeEach(function() {
-			base = atlas.Object.extend({
+			base = humble.Object.extend({
 				init: function(value) { this._value = value; },
 				value: function() { return arguments.length > 0 ? this._value = arguments[0] : this._value }
 			});
@@ -89,7 +89,7 @@ describe("A base object that", function() {
 		});
 		
 		it("can be invoked anonymously", function() {
-			base = atlas.Object.extend({
+			base = humble.Object.extend({
 				init: function(value) { this._value = value; },
 				value: function() { return arguments.length > 0 ? this._value = arguments[0] : this._value }
 			});
@@ -103,8 +103,8 @@ describe("A base object that", function() {
 	it("has an equals method", function() {
 		var a, b;
 		
-		a = new atlas.Object();
-		b = new atlas.Object();
+		a = new humble.Object();
+		b = new humble.Object();
 		
 		expect(a.equals(b)).not.toBe(true);
 		expect(a.equals(a)).toBe(true);

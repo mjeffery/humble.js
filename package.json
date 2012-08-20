@@ -1,0 +1,17 @@
+{
+  "name": "humble",
+  "version": "0.0.1-pre",
+  "description": "Just a simple, stand-alone implementation of Object Oriented classes",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjeffery/atlas.js.git"
+  },
+  "keywords": [
+    "class",
+    "object-oriented",
+    "polymorphism"
+  ],
+  "author": "Mike Jeffery",
+  "license": "BSD"
+}
